@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator - EcoTrack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=50&h=50&q=80" alt="Tree Logo">
+                <div class="logo-text">
+                    <h1>EcoTrack</h1>
+                    <span class="by-line">by UnknownERA</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#tips">Tips</a></li>
+                <li><a href="dashboard.html" class="dashboard-link">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </a></li>
+            </ul>
+            <div class="user-actions">
+                <span class="user-name">Welcome, User</span>
+                <select class="language-selector">
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="calculator-page">
+        <section class="calculator-section">
+            <div class="container">
+                <h2>Calculate Your Carbon Footprint</h2>
+                <div class="calculator-container">
+                    <div class="calculator-tabs">
+                        <button class="tab-btn active" data-tab="transport">
+                            <i class="fas fa-car"></i> Transportation
+                        </button>
+                        <button class="tab-btn" data-tab="home">
+                            <i class="fas fa-home"></i> Household
+                        </button>
+                        <button class="tab-btn" data-tab="food">
+                            <i class="fas fa-utensils"></i> Food
+                        </button>
+                        <button class="tab-btn" data-tab="lifestyle">
+                            <i class="fas fa-shopping-bag"></i> Lifestyle
+                        </button>
+                    </div>
+
+                    <div class="calculator-content">
+                        <div class="tab-content active" id="transport">
+                            <h3>Transportation Emissions</h3>
+                            <div class="input-group">
+                                <label>Car Travel (km/week):</label>
+                                <input type="number" id="car-km" placeholder="0">
+                            </div>
+                            <div class="input-group">
+                                <label>Public Transport (trips/week):</label>
+                                <input type="number" id="public-transport" placeholder="0">
+                            </div>
+                            <div class="input-group">
+                                <label>Air Travel (flights/year):</label>
+                                <input type="number" id="flights" placeholder="0">
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="home">
+                            <h3>Household Emissions</h3>
+                            <div class="input-group">
+                                <label>Electricity Usage (kWh/month):</label>
+                                <input type="number" id="electricity" placeholder="0">
+                            </div>
+                            <div class="input-group">
+                                <label>Natural Gas Usage (m³/month):</label>
+                                <input type="number" id="gas" placeholder="0">
+                            </div>
+                            <div class="input-group">
+                                <label>Water Usage (L/month):</label>
+                                <input type="number" id="water" placeholder="0">
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="food">
+                            <h3>Food Consumption</h3>
+                            <div class="input-group">
+                                <label>Meat Consumption (meals/week):</label>
+                                <input type="number" id="meat" placeholder="0">
+                            </div>
+                            <div class="input-group">
+                                <label>Dairy Products (servings/week):</label>
+                                <input type="number" id="dairy" placeholder="0">
+                            </div>
+                            <div class="input-group">
+                                <label>Food Waste (kg/week):</label>
+                                <input type="number" id="waste" placeholder="0">
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="lifestyle">
+                            <h3>Lifestyle Choices</h3>
+                            <div class="input-group">
+                                <label>Shopping (items/month):</label>
+                                <input type="number" id="shopping" placeholder="0">
+                            </div>
+                            <div class="input-group">
+                                <label>Recycling Habits:</label>
+                                <select id="recycling">
+                                    <option value="always">Always Recycle</option>
+                                    <option value="sometimes">Sometimes Recycle</option>
+                                    <option value="never">Never Recycle</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="calculate-btn">Calculate Footprint</button>
+                        <a href="dashboard.html" class="dashboard-btn">
+                            <i class="fas fa-chart-line"></i> View Full Dashboard
+                        </a>
+                    </div>
+
+                    <div class="results-container" style="display: none;">
+                        <h3>Your Carbon Footprint Results</h3>
+                        <div class="result-chart">
+                            <!-- Chart will be inserted here -->
+                        </div>
+                        <div class="result-details">
+                            <p>Total CO2 Emissions: <span id="total-emissions">0</span> tonnes/year</p>
+                            <div class="emissions-breakdown">
+                                <div class="breakdown-item">
+                                    <span class="label">Transportation:</span>
+                                    <span class="value" id="transport-emissions">0</span> tonnes
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="label">Household:</span>
+                                    <span class="value" id="home-emissions">0</span> tonnes
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="label">Food:</span>
+                                    <span class="value" id="food-emissions">0</span> tonnes
+                                </div>
+                                <div class="breakdown-item">
+                                    <span class="label">Lifestyle:</span>
+                                    <span class="value" id="lifestyle-emissions">0</span> tonnes
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recommendations">
+                            <h4>Recommendations to Reduce Your Footprint</h4>
+                            <ul id="recommendations-list">
+                                <!-- Recommendations will be inserted here -->
+                            </ul>
+                        </div>
+                        <div id="conclusionCards">
+                            <!-- Conclusions will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=50&h=50&q=80" alt="Tree Logo">
+                    <div class="logo-text">
+                        <h3>EcoTrack</h3>
+                        <span class="by-line">by UnknownERA</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#calculator">Calculator</a></li>
+                        <li><a href="#history">History</a></li>
+                        <li><a href="#tips">Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UnknownERA. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="calculator.js"></script>
+</body>
+</html> 

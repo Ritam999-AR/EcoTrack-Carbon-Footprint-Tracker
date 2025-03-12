@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Dashboard - EcoTrack</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <!-- Reuse your existing header/nav here -->
+    
+    <main class="dashboard-main">
+        <div class="dashboard-header">
+            <h1>Your Carbon Footprint Journey</h1>
+            <div class="date-range-picker">
+                <button class="time-filter active">Month</button>
+                <button class="time-filter">Quarter</button>
+                <button class="time-filter">Year</button>
+                <button class="time-filter">All Time</button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="card total-emissions">
+                    <div class="card-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Emissions</h3>
+                        <p class="value" id="totalEmissions">0</p>
+                        <p class="trend positive">↑ 2.3% vs last month</p>
+                    </div>
+                </div>
+
+                <div class="card carbon-score">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Carbon Score</h3>
+                        <p class="value" id="carbonScore">0</p>
+                        <p class="trend negative">↓ 5% improvement</p>
+                    </div>
+                </div>
+
+                <div class="card trees-needed">
+                    <div class="card-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Trees Needed</h3>
+                        <p class="value" id="treesNeeded">0</p>
+                        <p class="trend">To offset your emissions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Charts Section -->
+            <div class="charts-section">
+                <div class="chart-card main-trend">
+                    <h3>Emission Trends</h3>
+                    <canvas id="trendChart"></canvas>
+                </div>
+                
+                <div class="chart-card category-breakdown">
+                    <h3>Category Breakdown</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Insights Section -->
+            <div class="insights-section">
+                <h2>Monthly Insights</h2>
+                <div class="insight-cards">
+                    <div class="insight-card achievement">
+                        <div class="insight-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>Achievement Unlocked!</h4>
+                            <p>You've reduced your transport emissions by 15% this month. Keep up the great work! 🌟</p>
+                        </div>
+                    </div>
+
+                    <div class="insight-card alert">
+                        <div class="insight-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>Action Needed</h4>
+                            <p>Your household energy usage has increased significantly. Consider these energy-saving tips.</p>
+                        </div>
+                    </div>
+
+                    <div class="insight-card tip">
+                        <div class="insight-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>Pro Tip</h4>
+                            <p>Switching to LED bulbs could reduce your electricity footprint by up to 80%!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Plan Section -->
+            <div class="action-plan-section">
+                <h2>Your Personalized Action Plan</h2>
+                <div class="action-cards">
+                    <div class="action-card priority-high">
+                        <div class="action-header">
+                            <span class="priority-badge">High Impact</span>
+                            <i class="fas fa-car action-icon"></i>
+                        </div>
+                        <h4>Switch to Public Transport</h4>
+                        <p>Reducing car usage by 50% could save 2.3 tonnes of CO2 annually</p>
+                        <button class="action-btn">Start Action</button>
+                    </div>
+
+                    <div class="action-card priority-medium">
+                        <div class="action-header">
+                            <span class="priority-badge">Medium Impact</span>
+                            <i class="fas fa-home action-icon"></i>
+                        </div>
+                        <h4>Home Energy Audit</h4>
+                        <p>Schedule a professional energy audit to identify improvement areas</p>
+                        <button class="action-btn">Learn More</button>
+                    </div>
+
+                    <div class="action-card priority-low">
+                        <div class="action-header">
+                            <span class="priority-badge">Quick Win</span>
+                            <i class="fas fa-recycle action-icon"></i>
+                        </div>
+                        <h4>Start Composting</h4>
+                        <p>Reduce your food waste impact by creating nutrient-rich soil</p>
+                        <button class="action-btn">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reuse your existing footer here -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html> 
